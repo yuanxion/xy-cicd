@@ -4,15 +4,21 @@ name: CI_2nd
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-    types: [ opened, reopened, synchronize ]
+  ## Triggers the workflow on push or pull request events but only for the "main" branch
+  #push:
+  #  branches: [ "main" ]
+  #pull_request:
+  #  branches: [ "main" ]
+  #  types: [ opened, reopened, synchronize ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  ## Allows you to run this workflow manually from the Actions tab
+  #workflow_dispatch:
+
+  # workflow dependence test
+  workflow_run:
+    workflows: [ "build" ]
+    branches: [ main ]
+    types: [ completed ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -28,7 +34,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: ls -al
+        run: date && ls -al
 
       # make it error on purpose
       - name: Run error command
