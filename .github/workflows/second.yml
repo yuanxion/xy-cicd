@@ -16,9 +16,8 @@ on:
 
   # workflow dependence test
   workflow_run:
-    workflows: [ "CI" ]
-    branches: [ main ]
-    types: [ completed ]
+    workflows: CI
+    types: completed
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
