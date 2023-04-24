@@ -16,7 +16,7 @@ on:
 
   # workflow dependence test
   workflow_run:
-    workflows: [ "build" ]
+    workflows: [ "CI" ]
     branches: [ main ]
     types: [ completed ]
 
